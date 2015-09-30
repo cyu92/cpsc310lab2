@@ -146,7 +146,7 @@ public class StockWatcher implements EntryPoint {
 	 */
 	private void addStock() {
 		// Auto-generated method stub
-		final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
+		
 		newSymbolTextBox.setFocus(true);
 
 		// Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
