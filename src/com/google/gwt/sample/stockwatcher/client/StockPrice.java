@@ -8,7 +8,7 @@ package com.google.gwt.sample.stockwatcher.client;
 public class StockPrice {
 	private String symbol;
 	private double price;
-	private double change;
+	private double change1;
 
 	public StockPrice() {
 	}
