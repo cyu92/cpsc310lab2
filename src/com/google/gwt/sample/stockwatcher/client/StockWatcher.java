@@ -145,7 +145,7 @@ public class StockWatcher implements EntryPoint {
 	 * presses enter in the newSymbolTextBox.
 	 */
 	private void addStock() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
 		newSymbolTextBox.setFocus(true);
 
@@ -157,7 +157,7 @@ public class StockWatcher implements EntryPoint {
 		}
 		newSymbolTextBox.setText("");
 
-		// TODO Don't add the stock if it's already in the table.
+		// Don't add the stock if it's already in the table.
 		if(stocks.contains(symbol))
 			return;
 		addStock(symbol);
@@ -204,7 +204,7 @@ public class StockWatcher implements EntryPoint {
 		stocksFlexTable.getCellFormatter().addStyleName(row, 3, "watchListRemoveColumn");
 
 		// TODO Add a button to remove this stock from the table.
-		Button removeStock = new Button("x"); 
+		Button removeStock = new Button("X"); 
 		removeStock.addStyleDependentName("remove");
 		removeStock.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
