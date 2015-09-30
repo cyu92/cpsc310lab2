@@ -76,7 +76,7 @@ public class StockWatcher implements EntryPoint {
 		// Set up sign out hyperlink.
 		signOutLink.setHref(loginInfo.getLogoutUrl());
 		
-		// TODO Create table for stock data.
+		// Create table for stock data.
 		stocksFlexTable.setText(0, 0, "Symbol");
 		stocksFlexTable.setText(0, 1, "Price");
 		stocksFlexTable.setText(0, 2, "Change");
@@ -95,21 +95,21 @@ public class StockWatcher implements EntryPoint {
 		
 		loadStocks();
 
-		// TODO Assemble Add Stock panel. 
+		// Assemble Add Stock panel. 
 		addPanel.add(newSymbolTextBox);
 		addPanel.add(addStockButton);
 		addPanel.addStyleName("addPanel");
 
-		// TODO Assemble Main panel.
+		// Assemble Main panel.
 		mainPanel.add(signOutLink);
 		mainPanel.add(stocksFlexTable);
 		mainPanel.add(addPanel);
 		mainPanel.add(lastUpdatedLabel);
 
-		// TODO Associate the Main panel with the HTML host page.
+		// Associate the Main panel with the HTML host page.
 		RootPanel.get("stockList").add(mainPanel);
 
-		// TODO Move cursor focus to the input box.
+		// Move cursor focus to the input box.
 		newSymbolTextBox.setFocus(true);
 
 		// Setup timer to refresh list automatically.
@@ -145,7 +145,7 @@ public class StockWatcher implements EntryPoint {
 	 * presses enter in the newSymbolTextBox.
 	 */
 	private void addStock() {
-		// TODO Auto-generated method stub
+		// Set focus for text box
 		final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
 		newSymbolTextBox.setFocus(true);
 
@@ -157,7 +157,7 @@ public class StockWatcher implements EntryPoint {
 		}
 		newSymbolTextBox.setText("");
 
-		// TODO Don't add the stock if it's already in the table.
+		// Don't add the stock if it's already in the table.
 		if(stocks.contains(symbol))
 			return;
 		addStock(symbol);
@@ -194,7 +194,7 @@ public class StockWatcher implements EntryPoint {
 	
 	private void displayStock(final String symbol) {
 
-		// TODO Add the stock to the table
+		// Add the stock to the table
 		int row = stocksFlexTable.getRowCount();
 		stocks.add(symbol);  //add to the array
 		stocksFlexTable.setText(row, 0, symbol); //add symbol to the table displayed
@@ -203,8 +203,8 @@ public class StockWatcher implements EntryPoint {
 		stocksFlexTable.getCellFormatter().addStyleName(row, 2, "watchListNumericColumn");
 		stocksFlexTable.getCellFormatter().addStyleName(row, 3, "watchListRemoveColumn");
 
-		// TODO Add a button to remove this stock from the table.
-		Button removeStock = new Button("x"); 
+		// Add a button to remove this stock from the table.
+		Button removeStock = new Button("X"); 
 		removeStock.addStyleDependentName("remove");
 		removeStock.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -212,7 +212,7 @@ public class StockWatcher implements EntryPoint {
 			}
 		});
 		stocksFlexTable.setWidget(row, 3, removeStock);
-		// TODO Get the stock price.
+		// Get the stock price.
 		refreshWatchList();
 
 	}
@@ -236,7 +236,7 @@ public class StockWatcher implements EntryPoint {
 	  }
 
 	private void refreshWatchList() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		final double MAX_PRICE = 100.0; // $100.00
 		final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
 
