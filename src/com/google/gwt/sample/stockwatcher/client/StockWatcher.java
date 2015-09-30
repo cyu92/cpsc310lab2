@@ -146,21 +146,21 @@ public class StockWatcher implements EntryPoint {
 	 */
 	private void addStock() {
 		// Set focus for text box
-		final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
+		final String stockSym = newSymbolTextBox.getText().toUpperCase().trim();
 		newSymbolTextBox.setFocus(true);
 
 		// Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
-		if (!symbol.matches("^[0-9A-Z\\.]{1,10}$")) {
-			Window.alert("'" + symbol + "' is not a valid symbol. Please enter a valid symbol.");
+		if (!stockSym.matches("^[0-9A-Z\\.]{1,10}$")) {
+			Window.alert("'" + stockSym + "' is not a valid symbol. Please enter a valid symbol.");
 			newSymbolTextBox.selectAll();
 			return;
 		}
 		newSymbolTextBox.setText("");
 
 		// Don't add the stock if it's already in the table.
-		if(stocks.contains(symbol))
+		if(stocks.contains(stockSym))
 			return;
-		addStock(symbol);
+		addStock(stockSym);
 	}
 	
 	private void addStock(final String symbol) {
