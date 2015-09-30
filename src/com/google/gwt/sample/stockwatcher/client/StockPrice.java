@@ -8,7 +8,9 @@ package com.google.gwt.sample.stockwatcher.client;
 public class StockPrice {
 	private String symbol;
 	private double price;
+
 	private double changechange;
+
 
 	public StockPrice() {
 	}
@@ -16,7 +18,7 @@ public class StockPrice {
 	public StockPrice(String symbol, double price, double change) {
 		this.symbol = symbol;
 		this.price = price;
-		this.change = change;
+		this.changechange = change;
 	}
 
 	public String getSymbol() {
@@ -28,11 +30,11 @@ public class StockPrice {
 	}
 
 	public double getChange() {
-		return this.change;
+		return this.changechange;
 	}
 
 	public double getChangePercent() {
-		return 100.0 * this.change / this.price;
+		return 100.0 * this.changechange / this.price;
 	}
 
 	public void setSymbol(String symbol) {
@@ -44,7 +46,7 @@ public class StockPrice {
 	}
 
 	public void setChange(double change) {
-		this.change = change;
+		this.changechange = change;
 	}
 
 }
