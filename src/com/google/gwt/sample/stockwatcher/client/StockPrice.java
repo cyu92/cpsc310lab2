@@ -1,5 +1,6 @@
 package com.google.gwt.sample.stockwatcher.client;
 // adding a comment to commit
+//adding a second comment
 public class StockPrice {
 	private String symbol;
 	private double price;
