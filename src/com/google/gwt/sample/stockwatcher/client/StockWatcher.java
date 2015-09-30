@@ -76,7 +76,7 @@ public class StockWatcher implements EntryPoint {
 		// Set up sign out hyperlink.
 		signOutLink.setHref(loginInfo.getLogoutUrl());
 		
-		// TODO Create table for stock data.
+		// Create table for stock data.
 		stocksFlexTable.setText(0, 0, "Symbol");
 		stocksFlexTable.setText(0, 1, "Price");
 		stocksFlexTable.setText(0, 2, "Change");
@@ -95,21 +95,21 @@ public class StockWatcher implements EntryPoint {
 		
 		loadStocks();
 
-		// TODO Assemble Add Stock panel. 
+		// Assemble Add Stock panel. 
 		addPanel.add(newSymbolTextBox);
 		addPanel.add(addStockButton);
 		addPanel.addStyleName("addPanel");
 
-		// TODO Assemble Main panel.
+		// Assemble Main panel.
 		mainPanel.add(signOutLink);
 		mainPanel.add(stocksFlexTable);
 		mainPanel.add(addPanel);
 		mainPanel.add(lastUpdatedLabel);
 
-		// TODO Associate the Main panel with the HTML host page.
+		// Associate the Main panel with the HTML host page.
 		RootPanel.get("stockList").add(mainPanel);
 
-		// TODO Move cursor focus to the input box.
+		// Move cursor focus to the input box.
 		newSymbolTextBox.setFocus(true);
 
 		// Setup timer to refresh list automatically.
@@ -145,22 +145,28 @@ public class StockWatcher implements EntryPoint {
 	 * presses enter in the newSymbolTextBox.
 	 */
 	private void addStock() {
-		// Auto-generated method stub
-		
+
+		// Set focus for text box
+		final String stockSym = newSymbolTextBox.getText().toUpperCase().trim();
+
 		newSymbolTextBox.setFocus(true);
 
 		// Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
-		if (!symbol.matches("^[0-9A-Z\\.]{1,10}$")) {
-			Window.alert("'" + symbol + "' is not a valid symbol. Please enter a valid symbol.");
+		if (!stockSym.matches("^[0-9A-Z\\.]{1,10}$")) {
+			Window.alert("'" + stockSym + "' is not a valid symbol. Please enter a valid symbol.");
 			newSymbolTextBox.selectAll();
 			return;
 		}
 		newSymbolTextBox.setText("");
 
 		// Don't add the stock if it's already in the table.
+<<<<<<< HEAD
 		if(stocks.contains(symbol))
+=======
+		if(stocks.contains(stockSym))
+>>>>>>> origin/b1
 			return;
-		addStock(symbol);
+		addStock(stockSym);
 	}
 	
 	private void addStock(final String symbol) {
@@ -194,7 +200,7 @@ public class StockWatcher implements EntryPoint {
 	
 	private void displayStock(final String symbol) {
 
-		// TODO Add the stock to the table
+		// Add the stock to the table
 		int row = stocksFlexTable.getRowCount();
 		stocks.add(symbol);  //add to the array
 		stocksFlexTable.setText(row, 0, symbol); //add symbol to the table displayed
@@ -203,7 +209,11 @@ public class StockWatcher implements EntryPoint {
 		stocksFlexTable.getCellFormatter().addStyleName(row, 2, "watchListNumericColumn");
 		stocksFlexTable.getCellFormatter().addStyleName(row, 3, "watchListRemoveColumn");
 
+<<<<<<< HEAD
 		// TODO Add a button to remove this stock from the table.
+=======
+		// Add a button to remove this stock from the table.
+>>>>>>> origin/b1
 		Button removeStock = new Button("X"); 
 		removeStock.addStyleDependentName("remove");
 		removeStock.addClickHandler(new ClickHandler() {
@@ -212,7 +222,7 @@ public class StockWatcher implements EntryPoint {
 			}
 		});
 		stocksFlexTable.setWidget(row, 3, removeStock);
-		// TODO Get the stock price.
+		// Get the stock price.
 		refreshWatchList();
 
 	}
@@ -236,7 +246,7 @@ public class StockWatcher implements EntryPoint {
 	  }
 
 	private void refreshWatchList() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		final double MAX_PRICE = 100.0; // $100.00
 		final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
 
